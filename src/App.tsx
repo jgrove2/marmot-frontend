@@ -1,10 +1,26 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { createClient, SupabaseClient } from '@supabase/supabase-js'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [supabaseClient, setSetSupabaseClient] = useState<undefined | SupabaseClient>(undefined)
+  useEffect(() =>{
+    setSetSupabaseClient(createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_KEY))
+  }, [])
+  const login = async () => {
+    if(supabaseClient !== undefined) {
+      let {data, error} = await supabaseClient.auth.signInWithOAuth({
+        provider: "github",
+        options: {
+          redirectTo: location.origin + "/auth/callback",
+        }
+      });
+      console.log(data, error)
+    }
+  }
 
   return (
     <>
@@ -18,7 +34,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={login}>
           count is {count}
         </button>
         <p>
