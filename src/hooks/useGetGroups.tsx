@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { store } from "../util/Store";
 import { useStore } from "@tanstack/react-store";
-import { Session, SupabaseClient, User } from "@supabase/supabase-js";
+import { Session } from "@supabase/supabase-js";
 
 function useGetGroups(isAuthenticated: boolean) {
   const session = useStore(

@@ -1,8 +1,8 @@
 import { useStore } from "@tanstack/react-store";
 import { store, updateStore } from "../util/Store";
-import { Session, SupabaseClient, User } from "@supabase/supabase-js";
-import { useEffect, useState } from "react";
-import { redirect, useNavigate } from "@tanstack/react-router";
+import { SupabaseClient } from "@supabase/supabase-js";
+import { useEffect } from "react";
+import { useNavigate } from "@tanstack/react-router";
 import { createNewSupabaseClient } from "../util/Supabase";
 import BudgetTable from "../components/BudgetTable";
 import useGetGroups from "../hooks/useGetGroups";
@@ -17,11 +17,8 @@ function Home() {
     store,
     (state): boolean => state["isAuthenticated"]
   );
-  const {
-    status: getGroupStatus,
-    data: getGroupData,
-    error,
-  } = useGetGroups(isAuthenticated);
+  const { status: getGroupStatus, data: getGroupData } =
+    useGetGroups(isAuthenticated);
 
   useEffect(() => {
     if (getGroupStatus === "success") {

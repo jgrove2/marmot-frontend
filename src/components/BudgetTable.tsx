@@ -1,9 +1,9 @@
 import { useStore } from "@tanstack/react-store";
 import { Category, Group } from "../types/table.type";
 import { store, updateStore } from "../util/Store";
-import { FaAngleDown, FaAngleRight, FaAngleUp } from "react-icons/fa";
+import { FaAngleDown, FaAngleRight } from "react-icons/fa";
 import { FiEdit3 } from "react-icons/fi";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 
 const BudgetTable = () => {
   const budgetTableData = useStore(

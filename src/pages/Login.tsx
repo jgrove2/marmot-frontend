@@ -1,11 +1,10 @@
-import { Button } from "@mantine/core";
 import LoginModal from "../components/LoginModal";
 import { useDisclosure } from "@mantine/hooks";
 import { SupabaseClient } from "@supabase/supabase-js";
 import { store, updateStore } from "../util/Store";
 import { useStore } from "@tanstack/react-store";
 import { useEffect } from "react";
-import { redirect, useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 import { createNewSupabaseClient } from "../util/Supabase";
 
 function Login() {
