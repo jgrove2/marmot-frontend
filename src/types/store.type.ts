@@ -1,4 +1,4 @@
-import { Session, SupabaseClient, User } from "@supabase/supabase-js";
+import { Session, SupabaseClient} from "@supabase/supabase-js";
 import { Group } from "./table.type";
 
 export type StoreType = {

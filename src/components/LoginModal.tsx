@@ -1,11 +1,10 @@
-import { Button, Modal } from "@mantine/core";
-import { createClient, SupabaseClient } from "@supabase/supabase-js";
+import { Modal } from "@mantine/core";
+import { SupabaseClient } from "@supabase/supabase-js";
 import { useStore } from "@tanstack/react-store";
-import { useEffect, useState } from "react";
-import { FaGithub } from "react-icons/fa";
+import { useEffect } from "react";
 import { store, updateStore } from "../util/Store";
 import { Auth } from "@supabase/auth-ui-react";
-import { redirect, useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { createNewSupabaseClient } from "../util/Supabase";
 
